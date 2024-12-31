@@ -99,7 +99,7 @@ class Application(DiscordObject):
 
     async def fetch_emoji(self, emoji_id: Snowflake_Type) -> PartialEmoji:
         """Fetch an emoji for this application"""
-        response = self._client.http.get_application_emoji(self.id, emoji_id)
+        response = await self._client.http.get_application_emoji(self.id, emoji_id)
         return await self._client.cache.place_emoji_data(None, response)
 
     async def create_emoji(self, name: str, imagefile: UPLOADABLE_TYPE) -> PartialEmoji:
