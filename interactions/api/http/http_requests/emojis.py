@@ -141,6 +141,7 @@ class EmojiRequests(CanRequest):
 
         """
         result = await self.request(Route("GET", f"/applications/{application_id}/emojis/{emoji_id}"))
+        print(result)
         return cast(discord_typings.EmojiData, result)
 
     async def create_application_emoji(
